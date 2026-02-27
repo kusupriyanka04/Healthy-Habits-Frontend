@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts ───────────────────────────────────── */
+/* @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Inter:wght@300;400;500;600&display=swap'); */
+
+/* ─── CSS Variables ──────────────────────────────────── */
+:root {
+  --bg:           #f8fafc;
+  --bg-card:      #ffffff;
+  --bg-muted:     #f1f5f9;
+  --border:       #e2e8f0;
+  --border-muted: #f1f5f9;
+  --text:         #0f172a;
+  --text-muted:   #64748b;
+  --text-faint:   #94a3b8;
+  --accent:       #22c55e;
+  --accent-muted: rgba(34,197,94,0.1);
+  --shadow:       0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:    0 4px 12px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'Inter', monospace;
+}
+
+.dark {
+  --bg:           #040d0a;
+  --bg-card:      #0a1612;
+  --bg-muted:     #0f1f1a;
+  --border:       #1a3328;
+  --border-muted: #122219;
+  --text:         #e8f5f0;
+  --text-muted:   #7ab89a;
+  --text-faint:   #3d7060;
+  --accent:       #22c55e;
+  --accent-muted: rgba(34,197,94,0.12);
+  --shadow:       0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md:    0 4px 20px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* ─── Dark Mode Gradient Background ─────────────────── */
+.dark body {
+  background: #040d0a !important;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(20,184,166,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 10%, rgba(34,197,94,0.10) 0%, transparent 45%),
+    radial-gradient(ellipse at 60% 80%, rgba(16,185,129,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 90%, rgba(6,182,212,0.07)  0%, transparent 40%) !important;
+  background-attachment: fixed !important;
+}
+
+/* ─── Base Styles ────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering:          optimizeLegibility;
+}
+
+body {
+  font-family:      var(--font-body);
+  font-size:        15px;
+  line-height:      1.6;
+  background-color: var(--bg);
+  color:            var(--text);
+  min-height:       100vh;
+  transition:       background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Typography ─────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6,
+.font-syne {
+  font-family:     var(--font-display) !important;
+  letter-spacing:  -0.02em;
+  line-height:     1.2;
+}
+
+p, span, div, button, input, select, textarea, label {
+  font-family: var(--font-body);
+}
+
+/* Better number rendering */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono) !important;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background:    var(--border);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
+
+/* ─── Component Classes ──────────────────────────────── */
+@layer components {
+
+  .card {
+    background:    var(--bg-card);
+    border:        1px solid var(--border);
+    border-radius: 20px;
+    box-shadow:    var(--shadow);
+    transition:    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card:hover {
+    border-color: var(--border-muted);
+    box-shadow:   var(--shadow-md);
+  }
+
+  .input-base {
+    width:        100%;
+    background:   var(--bg-muted);
+    border:       1.5px solid var(--border);
+    color:        var(--text);
+    border-radius:12px;
+    padding:      11px 14px;
+    font-family:  var(--font-body) !important;
+    font-size:    0.9rem;
+    transition:   border-color 0.2s, box-shadow 0.2s;
+    outline:      none;
+  }
+  .input-base::placeholder { color: var(--text-faint); }
+  .input-base:focus {
+    border-color: var(--accent);
+    box-shadow:   0 0 0 3px rgba(34,197,94,0.12);
+  }
+
+  /* Primary Button */
+  .btn-primary {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             6px;
+    background:      var(--accent);
+    color:           #052e16;
+    font-family:     var(--font-display) !important;
+    font-weight:     700;
+    font-size:       0.875rem;
+    letter-spacing:  -0.01em;
+    padding:         10px 20px;
+    border-radius:   12px;
+    border:          none;
+    cursor:          pointer;
+    transition:      all 0.18s ease;
+    white-space:     nowrap;
+  }
+  .btn-primary:hover {
+    filter:     brightness(1.08);
+    transform:  translateY(-1px);
+    box-shadow: 0 6px 20px rgba(34,197,94,0.3);
+  }
+  .btn-primary:active  { transform: translateY(0); filter: brightness(0.97); }
+  .btn-primary:disabled {
+    opacity:    0.5;
+    cursor:     not-allowed;
+    transform:  none;
+    box-shadow: none;
+    filter:     none;
+  }
+
+  /* Ghost Button */
+  .btn-ghost {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+    gap:             6px;
+    background:      var(--bg-muted);
+    color:           var(--text-muted);
+    font-family:     var(--font-body) !important;
+    font-weight:     600;
+    font-size:       0.875rem;
+    padding:         10px 18px;
+    border-radius:   12px;
+    border:          1.5px solid var(--border);
+    cursor:          pointer;
+    transition:      all 0.18s ease;
+    white-space:     nowrap;
+  }
+  .btn-ghost:hover  { color: var(--text); background: var(--border); }
+  .btn-ghost:active { transform: scale(0.98); }
+
+  /* Label */
+  .label {
+    display:        block;
+    font-size:      0.78rem;
+    font-weight:    700;
+    font-family:    var(--font-display) !important;
+    color:          var(--text-faint);
+    margin-bottom:  6px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Badge */
+  .badge {
+    display:        inline-flex;
+    align-items:    center;
+    gap:            4px;
+    padding:        3px 10px;
+    border-radius:  99px;
+    font-size:      0.7rem;
+    font-weight:    700;
+    letter-spacing: 0.03em;
+    font-family:    var(--font-display) !important;
+  }
+
+  /* Page wrapper — smooth entry */
+  .page-enter {
+    animation: slideUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+
+  /* Mobile padding for bottom nav */
+  .mobile-pb { padding-bottom: 80px; }
+}
+
+/* ─── Animations ─────────────────────────────────────── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px);  }
+  50%       { transform: translateY(-5px); }
+}
+
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: var(--target-width); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+.animate-float    { animation: float    3s ease-in-out infinite; }
+.animate-fade-in  { animation: fadeIn   0.3s ease forwards;      }
+.animate-slide-up { animation: slideUp  0.4s cubic-bezier(0.16,1,0.3,1) forwards; }
+.animate-scale-in { animation: scaleIn  0.3s cubic-bezier(0.16,1,0.3,1) forwards; }
+.progress-bar     { animation: progressFill 1s cubic-bezier(0.16,1,0.3,1) both; }
+
+/* ─── Recharts Overrides ─────────────────────────────── */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical   line {
+  stroke: var(--border) !important;
+}
+.recharts-text {
+  fill:        var(--text-muted) !important;
+  font-family: var(--font-body) !important;
+  font-size:   12px !important;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background:   var(--bg-card) !important;
+  border:       1px solid var(--border) !important;
+  border-radius:14px !important;
+  box-shadow:   var(--shadow-md) !important;
+  font-family:  var(--font-body) !important;
+}
+
+/* ─── Mobile ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  body    { font-size: 14px; }
+  .card   { border-radius: 16px; }
+  h1      { font-size: 1.75rem !important; letter-spacing: -0.03em; }
+  h2      { font-size: 1.3rem  !important; }
+  h3      { font-size: 1.1rem  !important; }
+  button  { min-height: 40px; }
+}
