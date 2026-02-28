@@ -235,7 +235,7 @@ Powered by **Groq's free API** using **Llama 3.3 70B** model.
 
 **Kusu Priyanka**
 
-- GitHub: [@yourusername](https://github.com/kusupriyanka04)
+- GitHub: https://github.com/kusupriyanka04
 
 ---
 
