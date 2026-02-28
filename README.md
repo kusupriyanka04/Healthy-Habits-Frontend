@@ -66,7 +66,7 @@ A full-stack habit tracking web application to help you build healthy routines, 
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/HealthyHabits_Tracker.git
+git clone [https://github.com/yourusername/HealthyHabits_Tracker.git](https://github.com/kusupriyanka04/Healthy-Habits-Backend.git)
 cd HealthyHabits_Tracker
 ```
 
