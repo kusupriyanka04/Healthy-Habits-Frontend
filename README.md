@@ -6,7 +6,7 @@ A full-stack habit tracking web application to help you build healthy routines, 
 
 ## 🌐 Live Demo
 
-- **Frontend:** `<!-- Add your Vercel URL here -->`
+- **Frontend:** https://healthy-habits-frontend.vercel.app
 - **Backend API:** https://healthy-habits-backend.onrender.com
 
 ---
@@ -229,7 +229,7 @@ Powered by **Groq's free API** using **Llama 3.3 70B** model.
 
 **Kusu Priyanka**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@yourusername](https://github.com/kusupriyanka04)
 
 ---
 
