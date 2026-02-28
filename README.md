@@ -217,11 +217,17 @@ Powered by **Groq's free API** using **Llama 3.3 70B** model.
 
 ---
 
+## 🎥 Demo Video
+
+[![HealthyHabits Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+---
+
 ## 📸 Screenshots
 
 | Dashboard | Analytics | Challenges |
 |---|---|---|
-| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
+| ![Dashboard](./screenshots/dashboard.png) | ![Analytics](./screenshots/analytics.png) | ![Challenges](./screenshots/challenges.png) |
 
 ---
 
